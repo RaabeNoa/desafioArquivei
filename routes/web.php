@@ -10,7 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+Route::get('/nfes', 'NFeController@index');
+Route::resource('nfes', 'NFeController');
+Route::post('/nfes/list', 'NFeController@search');
