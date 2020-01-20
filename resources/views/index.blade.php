@@ -17,35 +17,7 @@
             font-family: 'Nunito', sans-serif;
             font-weight: 200;
             height: 100vh;
-            margin: 0;
-        }
-
-        .full-height {
-            height: 100vh;
-        }
-
-        .flex-center {
-            align-items: center;
-            display: flex;
-            justify-content: center;
-        }
-
-        .position-ref {
-            position: relative;
-        }
-
-        .top-right {
-            position: absolute;
-            right: 10px;
-            top: 18px;
-        }
-
-        .content {
-            text-align: center;
-        }
-
-        .title {
-            font-size: 84px;
+            margin: 10px;
         }
 
         .links > a {
@@ -57,18 +29,32 @@
             text-decoration: none;
             text-transform: uppercase;
         }
-
-        .m-b-md {
-            margin-bottom: 30px;
+        .errormsg{
+            color: red;
+            font-family: 'Nunito', sans-serif;
+            font-weight: bold;
+        }
+        .successmsg{
+            color: blue;
+            font-family: 'Nunito', sans-serif;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-<h1>Notas Fiscais</h1>
-<form method="POST" action="/nfes/store">
-    {{ csrf_field() }}
-    <button type="submit">Listar Notas Fiscais</button>
-</form>
-<p><a href="nfes/list">Buscar Notas Fiscais</a></p>
+<div>
+    <h1>Notas Fiscais</h1>
+    <p class="errormsg">{{ $message ?? '' }}</p>
+    <p class="successmsg">{{ $success_message ?? '' }}</p>
+    <form method="POST" action="/nfes">
+        {{ csrf_field() }}
+        <button type="submit">Importar dados da API</button>
+    </form>
+    <br>
+    <form method="POST" action="/nfes/list">
+        {{ csrf_field() }}
+        <button type="submit">Listar Notas Fiscais</button>
+    </form>
+</div>
 </body>
 </html>
