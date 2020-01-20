@@ -13,6 +13,7 @@
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/nfes', 'NFeController@index');
-Route::resource('nfes', 'NFeController');
+Route::get('/nfes/list', 'NFeController@index');
+Route::get('/nfes', 'NFeController@redirectToIndex');
+Route::post('/nfes', 'NFeController@store');
 Route::post('/nfes/list', 'NFeController@search');
